@@ -1,0 +1,12 @@
+.mainScreen_wrapp {
+  width: 100%;
+  background: $main-color;
+  height: 100vh;
+}
+
+.bookCard_wrapp {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+}

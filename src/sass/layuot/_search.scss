@@ -1,0 +1,21 @@
+.search_warpp {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background: $search-color;
+  &-input {
+    height: 35px;
+    width: 40rem;
+    border: 1px solid #b2b2b2b5;
+    padding: 0 1rem;
+    outline: transparent;
+    &::placeholder {
+      color: #8c8c8cb1;
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+    &:focus {
+      border: 1px solid #27b8c3bd;
+    }
+  }
+}

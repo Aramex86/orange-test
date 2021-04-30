@@ -1,0 +1,38 @@
+.detail_wrapp {
+  margin-top: 1rem;
+  padding: 0 2rem;
+  position: relative;
+  &-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+  &-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  &-btn {
+    position: absolute;
+    right: 5%;
+    background: transparent;
+    border: transparent;
+    outline: transparent;
+    cursor: pointer;
+  }
+}
+
+.desc_wrapp {
+  display: flex;
+  margin-bottom: 20px;
+  &-description {
+    width: 75%;
+    font-size: 1.5rem;
+    line-height: 23px;
+  }
+  &-img {
+    width: 170px;
+    object-fit: fill;
+    height: 268px;
+    margin-right: 20px;
+  }
+}
