@@ -11,6 +11,7 @@ import {
 import { requestBooks } from "../../store/reducers/booksReducer";
 
 import noImage from "../../assets/noimage.jpg";
+import { BooksType } from "../../Types/types";
 
 
 //Test data
@@ -23,19 +24,16 @@ const MainScreen = () => {
   const books = useSelector((state: AppStateType) => getItemsSelector(state));
   const dispatch = useDispatch();
 
-  useEffect(() => {
-     dispatch(requestBooks());
-  }, []);
 
   const { items } = TestData;
-
-
+ 
 
   return (
     <section className="mainScreen_wrapp">
       <Search />
       <div className="bookCard_wrapp">
-        {books.map((item) => (
+       {!books?'No Books Yet': 
+       books.map((item:any) => (
           <BookCard
             key={item.id}
             id={item.id}

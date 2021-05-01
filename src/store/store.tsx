@@ -20,6 +20,7 @@ store.subscribe(() => {
     "favorite",
     JSON.stringify(store.getState().addToFavorite)
   );
+  window.localStorage.setItem('searchVal',store.getState().searchValue)
 });
 //@ts-ignore
 window.___store__ = store;

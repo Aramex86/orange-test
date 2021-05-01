@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { BooksType } from "../../Types/types";
 import { BsStar } from "react-icons/bs";
 import { BsStarFill } from "react-icons/bs";
-import { addToFavorite, requestBooks } from "../../store/reducers/booksReducer";
+import { addToFavorite, getSearchVal, requestBooks } from "../../store/reducers/booksReducer";
 import noImage from "../../assets/noimage.jpg";
 import { AppStateType } from "../../store/store";
-import { getItemsSelector } from "../../store/selectors/booksSelector";
+import { getItemsSelector, valueSelector } from "../../store/selectors/booksSelector";
 import parse from "html-react-parser";
 
 //Test data
@@ -23,22 +23,22 @@ const Details = () => {
   let { bookId }: ParamsType = useParams();
 
 
-useEffect(() => {
-  dispatch(requestBooks())
-}, []);
   
-
+const {items}=TestData
   const findBookById = booksList.find((item:BooksType)=> item.id === bookId) as BooksType
+  //Test Data
+  //  const findBookById = items.find((item:BooksType)=> item.id === bookId) as BooksType
+
 
   const handleAddToFavorite = () => {
     setBookmark(true);
-      dispatch(addToFavorite(findBookById));
+       dispatch(addToFavorite(findBookById));
   };
 
 
 //  console.log(items);
-  console.log(bookId);
-   console.log(booksList)
+  // console.log(bookId);
+  //  console.log(booksList)
   console.log(findBookById);
   return (
     <section className="detail_wrapp">
@@ -50,7 +50,7 @@ useEffect(() => {
       <div className="desc_wrapp">
         <img src={findBookById?.volumeInfo.imageLinks.thumbnail} alt={findBookById?.volumeInfo.title} className="desc_wrapp-img" />
         <div className="desc_wrapp-description">
-          {findBookById?.volumeInfo.description.replaceAll(/<[^>]+>/g, "")}
+          {!findBookById.volumeInfo.description?"":findBookById?.volumeInfo.description.replaceAll(/<[^>]+>/g, "")}
         </div>
       </div>
       <p>

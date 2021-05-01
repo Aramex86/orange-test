@@ -9,3 +9,6 @@ export const isFetchingSelector=(state:AppStateType)=>{
 export const favoriteSelector=(state:AppStateType)=>{
     return state.addToFavorite
 }
+export const valueSelector=(state:AppStateType)=>{
+    return state.searchValue
+}

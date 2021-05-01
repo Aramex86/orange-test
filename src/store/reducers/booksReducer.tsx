@@ -11,7 +11,7 @@ const TOOGLE_PRELOADER = "IS_FETCHING";
 
 const initialState = {
   searchValue: "",
-  books: [] as Array<BooksType>,
+  books: JSON.parse(localStorage.getItem('data')!) as Array<BooksType>,
   addToFavorite: [] as Array<BooksType>,
   isFetching: false,
 };
@@ -45,9 +45,10 @@ const booksReducer = (
       };
     }
     case GET_BOOKS: {
+
       return {
         ...state,
-        books: action.books,
+        books: state.books,
       };
     }
     case ADD_FAVORITE: {
@@ -105,11 +106,16 @@ export const addToFavorite = (
   return { type: ADD_FAVORITE, addToFavorite };
 };
 
+export const getSearchVal=(searchValue:string):SearchValueType=>{
+return{type:SEARCH_VALUE,searchValue}
+}
+
 //Thunk Creator
-export const requestBooks = (): ThunkType => async (dispatch: DispatchType) => {
-  const res = await booksApi.getBooks();
+export const requestBooks = (searchValue:string): ThunkType => async (dispatch: DispatchType) => {
+  const res = await booksApi.getBooks(searchValue);
+  console.log(res)
   dispatch(isFetching(true));
-  dispatch(getItems(res));
+  // dispatch(getItems(data));
   dispatch(isFetching(false));
 };
 
