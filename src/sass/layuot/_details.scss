@@ -24,10 +24,17 @@
 .desc_wrapp {
   display: flex;
   margin-bottom: 20px;
+  @include respond(phone) {
+    flex-direction: column;
+  }
   &-description {
     width: 75%;
     font-size: 1.5rem;
     line-height: 23px;
+    @include respond(phone) {
+      width: 100%;
+      margin-top: 15px;
+    }
   }
   &-img {
     width: 170px;

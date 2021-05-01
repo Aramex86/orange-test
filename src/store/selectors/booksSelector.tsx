@@ -6,10 +6,6 @@ export const getItemsSelector=(state:AppStateType)=>{
 export const isFetchingSelector=(state:AppStateType)=>{
     return state.isFetching
 }
-export const oneBookSelector=(state:AppStateType)=>{
-    return state.book
-}
-
 export const favoriteSelector=(state:AppStateType)=>{
     return state.addToFavorite
 }

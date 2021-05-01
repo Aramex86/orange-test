@@ -1,7 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { requestBook } from "../../store/reducers/booksReducer";
 
 type PropsType = {
   id: string;
@@ -18,14 +16,7 @@ const BookCard: FC<PropsType> = ({
   subtitle,
   searchInfo,
 }) => {
-  const dispatch = useDispatch();
-  
-
-  useEffect(() => {
-   dispatch(requestBook(id));
-  }, []);
-
-  console.log('books',id)
+  console.log("books", id);
   return (
     <div className="card_wrapp">
       <Link to={`/bookcard/${id}`} className="card_wrapp-link">

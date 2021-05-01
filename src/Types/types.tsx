@@ -30,10 +30,10 @@ export type ItemsType = {
   totalItems: number;
 };
 
-export type BookType = {
-  kind: string;
-  id: string;
-  etag: string;
-  selfLink: string;
-  volumeInfo: VolumeType;
-};
+// export type BookType = {
+//   kind: string;
+//   id: string;
+//   etag: string;
+//   selfLink: string;
+//   volumeInfo: VolumeType;
+// };
