@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { ThunkAction } from "redux-thunk";
 import { booksApi } from "../../Api/api";
-import { BooksType, ItemsType } from "../../Types/types";
+import { BooksType, BookType } from "../../Types/types";
 import { AppStateType } from "../store";
 
 const SEARCH_VALUE = "SEARCH_VALUE";
@@ -11,8 +11,8 @@ const TOOGLE_PRELOADER = "IS_FETCHING";
 
 const initialState = {
   searchValue: "",
-  books: null as ItemsType | null,
-  addToFavorite: [] as Array<any>,
+  books: [] as Array<BooksType>,
+  addToFavorite: [] as Array<BooksType>,
   isFetching: false,
 };
 
@@ -73,7 +73,7 @@ const booksReducer = (
 
 type GetItemsType = {
   type: typeof GET_BOOKS;
-  books: ItemsType;
+  books: Array<BooksType>;
 };
 type SearchValueType = {
   type: typeof SEARCH_VALUE;
@@ -81,7 +81,7 @@ type SearchValueType = {
 };
 type AddToFavoriteType = {
   type: typeof ADD_FAVORITE;
-  addToFavorite: Array<BooksType>;
+  addToFavorite: BooksType;
 };
 
 type IsFetchingType = {
@@ -91,7 +91,7 @@ type IsFetchingType = {
 
 //Action Creators
 
-export const getItems = (books: ItemsType): GetItemsType => {
+export const getItems = (books: Array<BooksType>): GetItemsType => {
   return { type: GET_BOOKS, books };
 };
 
@@ -100,7 +100,7 @@ export const isFetching = (isFetching: boolean): IsFetchingType => {
 };
 
 export const addToFavorite = (
-  addToFavorite: Array<BooksType>
+  addToFavorite: BooksType
 ): AddToFavoriteType => {
   return { type: ADD_FAVORITE, addToFavorite };
 };
@@ -109,8 +109,11 @@ export const addToFavorite = (
 export const requestBooks = (): ThunkType => async (dispatch: DispatchType) => {
   const res = await booksApi.getBooks();
   dispatch(isFetching(true));
-  // dispatch(getItems(res));
+  dispatch(getItems(res));
   dispatch(isFetching(false));
 };
 
+export const requestBook = (): ThunkType => async (
+  dispatch: DispatchType
+) => {};
 export default booksReducer;

@@ -4,12 +4,13 @@ import { favoriteSelector } from "../../store/selectors/booksSelector";
 import { AppStateType } from "../../store/store";
 import BookCard from "../common/BookCard";
 import noImage from "../../assets/noimage.jpg";
+import { BooksType } from "../../Types/types";
 
 const Favorite = () => {
   const favorite = useSelector((state: AppStateType) =>
     favoriteSelector(state)
   );
-  const [books, setBokks] = useState<Array<any>>();
+  const [books, setBokks] = useState<Array<BooksType>>();
 
   useEffect(() => {
     const x = localStorage.getItem("favorite");

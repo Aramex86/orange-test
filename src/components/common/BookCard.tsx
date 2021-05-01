@@ -1,12 +1,13 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 
 type PropsType = {
   id: string;
   title: string;
   thumbnail?: string;
   subtitle?: string;
-  searchInfo?: string;
+  searchInfo?: any;
 };
 
 const BookCard: FC<PropsType> = ({
@@ -16,7 +17,6 @@ const BookCard: FC<PropsType> = ({
   subtitle,
   searchInfo,
 }) => {
-  console.log("books", id);
   return (
     <div className="card_wrapp">
       <Link to={`/bookcard/${id}`} className="card_wrapp-link">
@@ -30,10 +30,9 @@ const BookCard: FC<PropsType> = ({
           <h4 className="card_wrapp-link-bottom-subtitle">
             {subtitle ? subtitle : "No subtitle"}
           </h4>
-          <p className="card_wrapp-link-bottom-searchInfo">{`${searchInfo?.replaceAll(
-            /<[^>]+>/g,
-            ""
-          )}`}</p>
+          <p className="card_wrapp-link-bottom-searchInfo">
+            {parse(searchInfo)}
+          </p>
         </div>
       </Link>
     </div>
