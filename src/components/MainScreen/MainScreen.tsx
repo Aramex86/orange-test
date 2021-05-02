@@ -15,7 +15,7 @@ const MainScreen = () => {
     <section className="mainScreen_wrapp">
       <Search />
       <div className="bookCard_wrapp">
-        {books.length === 0 ? (
+        {!books?<div className='no_booksError'>No such books! Try another title</div>:<> {books.length === 0 ? (
           <div className="bookCard_wrapp-nobooks">No Books Yet</div>
         ) : (
           books.map(({id, volumeInfo, searchInfo}) => (
@@ -34,7 +34,8 @@ const MainScreen = () => {
               }
             />
           ))
-        )}
+        )}</>}
+       
       </div>
     </section>
   );

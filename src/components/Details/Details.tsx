@@ -7,10 +7,7 @@ import {BsStarFill} from 'react-icons/bs';
 import {addToFavorite} from '../../store/reducers/booksReducer';
 // import noImage from '../../assets/noimage.jpg';
 import {AppStateType} from '../../store/store';
-import {
-  favoriteSelector,
-  getItemsSelector,
-} from '../../store/selectors/booksSelector';
+import {getItemsSelector} from '../../store/selectors/booksSelector';
 import parse from 'html-react-parser';
 
 type ParamsType = {
@@ -20,11 +17,7 @@ const Details = () => {
   const booksList = useSelector((state: AppStateType) =>
     getItemsSelector(state)
   );
-  const favorite = useSelector((state: AppStateType) =>
-    favoriteSelector(state)
-  );
 
-  console.log(favorite);
   const [bookmark, setBookmark] = useState(false);
   const dispatch = useDispatch();
   let {bookId}: ParamsType = useParams();
@@ -54,6 +47,7 @@ const Details = () => {
           className="desc_wrapp-img"
         />
         <div className="desc_wrapp-description">
+          <h3>Description</h3>
           {!findBookById?.volumeInfo.description
             ? ''
             : findBookById?.volumeInfo.description.replaceAll(/<[^>]+>/g, '')}

@@ -1,16 +1,29 @@
-.btn-link {
-  width: 70px;
-  height: 32px;
-  border-radius: 5px;
-  background: $btn-color;
-  color: $main-color;
-  margin-left: 5px;
+.btn_wrapp{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  text-transform: capitalize;
-  &:hover{
+
+  &-btn-link {
+    width: 70px;
+    height: 32px;
+    border-radius: 5px;
+    background: $btn-color;
+    color: $main-color;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    &:hover {
       background: #2caeb8fa;
+    }
   }
+}
+
+.btn-empty {
+  background: transparent;
+  position: absolute;
+  border: transparent;
+  outline: transparent;
+  left: calc(100% - 10%);
+  top: 16%;
 }

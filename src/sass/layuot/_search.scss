@@ -3,9 +3,14 @@
   text-align: center;
   padding: 1rem 0;
   background: $search-color;
+  &-inputWrap {
+    position: relative;
+    width: 40rem;
+    margin: auto;
+  }
   &-input {
     height: 35px;
-    width: 40rem;
+    width: 100%;
     border: 1px solid #b2b2b2b5;
     padding: 0 1rem;
     outline: transparent;
