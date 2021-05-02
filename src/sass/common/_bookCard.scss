@@ -1,18 +1,20 @@
 .card_wrapp {
   cursor: pointer;
-  border: 1px solid $book-card-border;
   border-radius: 5px;
   box-shadow: 0px 2px 3px 2px #b6b6b661;
   transition: all 0.5s ease;
-  margin-bottom: 25px;
+  margin: 0 4.5px 25px 4.5px;
   width: 24%;
-  @include respond(tab-port){
-    min-width: 24%;
+  @include respond(tab-port) {
+    min-width: 32%;
     width: 0;
   }
   @include respond(phone) {
-    min-width: 34%;
+    min-width: 48%;
     width: 0;
+  }
+  @include respond(small-phone) {
+    min-width: 90%;
   }
   &:hover {
     transform: translateY(-15px);

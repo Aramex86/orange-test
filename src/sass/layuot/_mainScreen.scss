@@ -1,12 +1,26 @@
 .mainScreen_wrapp {
   width: 100%;
   background: $main-color;
-  height: 100vh;
+  height: auto;
 }
 
 .bookCard_wrapp {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 2rem 1rem;
   flex-wrap: wrap;
+  margin: auto;
+  @include respond(tab-port) {
+    justify-content: center;
+  }
+  &-nobooks {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 5rem;
+    color: $search-color;
+    text-shadow: 1px 6px 5px;
+  }
 }

@@ -1,7 +1,7 @@
-@import "./mixins/mediaManager";
-@import "./mixins/colors";
-@import "./layuot/index";
-@import "./common/index";
+@import './mixins/mediaManager';
+@import './mixins/colors';
+@import './layuot/index';
+@import './common/index';
 
 *,
 *::before,
@@ -19,11 +19,14 @@ html {
   //this defines what 1rem is
   font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
 
-  @include respond(phone) {
+  @include respond(small-phone) {
     //<400?
+    font-size: 25%; // 1rem = 4px ;6/16 = 37.5%
+  }
+  @include respond(phone) {
+    //<600?
     font-size: 37.5%; // 1rem = 6px ;6/16 = 37.5%
   }
-
   @include respond(tab-land) {
     //width < 1200 ?
     font-size: 56.25%; // 1rem = 9px ;9/16 = 56.25%

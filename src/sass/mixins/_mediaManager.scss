@@ -17,10 +17,17 @@ $breakpoint argument choises:
 1em = 16px
 */
 @mixin respond($breakepoit) {
+
+  @if $breakepoit == small-phone{
+    @media only screen and(max-width:25em){
+      @content;
+    }//400px
+  }
+
   @if $breakepoit == phone {
     @media only screen and (max-width: 37.5em) {
       @content;
-    } //400px
+    } //600px
   }
   @if $breakepoit == tab-port {
     @media only screen and (max-width: 56.25em) {

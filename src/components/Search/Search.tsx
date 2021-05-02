@@ -5,8 +5,8 @@ import {valueSelector} from '../../store/selectors/booksSelector';
 import {AppStateType} from '../../store/store';
 
 const Search = () => {
-  const [val, setVal] = useState('');
   const storeVal = useSelector((state: AppStateType) => valueSelector(state));
+  const [val, setVal] = useState(storeVal);
   const dispatch = useDispatch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -18,18 +18,16 @@ const Search = () => {
   useEffect(() => {
     const stopTyping = setTimeout(() => {
       if (!val) {
-        console.log(`enter value`);
         return;
       }
 
       if (val) {
-        console.log(`send request ${val}`);
         dispatch(requestBooks(val));
       }
     }, 1000);
 
     return () => clearTimeout(stopTyping);
-  }, [val]);
+  }, [val, dispatch]);
 
   return (
     <div className="search_warpp">
@@ -38,7 +36,7 @@ const Search = () => {
         placeholder="type for search books..."
         className="search_warpp-input"
         onChange={handleChange}
-        // value={storeVal}
+        value={val}
       />
     </div>
   );
