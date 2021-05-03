@@ -4,15 +4,15 @@ The aplication for wiewing books made whith using React and Redux.
 
 ### Tehnologies and Libraries
 
-*React
-*React-Redux
-*Redux-Thunk
-*Redux-persist
-*React-router-dom 
-*Axios
-*TypeScript
-*Html-react-parser
-*React-icons
+* React
+* React-Redux
+* Redux-Thunk
+* Redux-persist
+* React-router-dom 
+* Axios
+* TypeScript
+* Html-react-parser
+* React-icons
 
 ### Surce for fetching data 
 
