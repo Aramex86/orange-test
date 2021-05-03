@@ -13,6 +13,7 @@ The aplication for wiewing books made whith using React and Redux.
 * TypeScript
 * Html-react-parser
 * React-icons
+* Sass
 
 ### Surce for fetching data 
 
