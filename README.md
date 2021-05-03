@@ -2,9 +2,23 @@
 
 The aplication for wiewing books made whith using React and Redux.
 
+### Tehnologies and Libraries
 
+*React
+*React-Redux
+*Redux-Thunk
+*Redux-persist
+*React-router-dom 
+*Axios
+*TypeScript
+*Html-react-parser
+*React-icons
 
-# Getting Started with Create React App
+### Surce for fetching data 
+
+#### https://developers.google.com/books/docs/v1/using#ids
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -51,4 +65,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## https://developers.google.com/books/docs/v1/using#ids
