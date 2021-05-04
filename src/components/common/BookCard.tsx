@@ -18,24 +18,45 @@ const BookCard: FC<PropsType> = ({
   searchInfo,
 }) => {
   return (
-    <div className="card_wrapp">
-      <Link to={`/bookcard/${id}`} className="card_wrapp-link">
-        <h3 className="card_wrapp-link-title">{title}</h3>
-        <img
-          src={thumbnail}
-          alt={title}
-          className="card_wrapp-link-thumbnail"
-        />
-        <div className="card_wrapp-link-bottom">
-          <h4 className="card_wrapp-link-bottom-subtitle">
-            {subtitle ? subtitle : "No subtitle"}
-          </h4>
-          <p className="card_wrapp-link-bottom-searchInfo">
-            {parse(searchInfo)}
-          </p>
+    <>
+      {id === "non" ? (
+        <div className="card_wrapp">
+          <h3 className="card_wrapp-link-title">{title}</h3>
+          <img
+            src={thumbnail}
+            alt={title}
+            className="card_wrapp-link-thumbnail"
+          />
+          <div className="card_wrapp-link-bottom">
+            <h4 className="card_wrapp-link-bottom-subtitle">
+              {subtitle ? subtitle : "No subtitle"}
+            </h4>
+            <p className="card_wrapp-link-bottom-searchInfo">
+              {parse(searchInfo)}
+            </p>
+          </div>
         </div>
-      </Link>
-    </div>
+      ) : (
+        <div className="card_wrapp">
+          <Link to={`/bookcard/${id}`} className="card_wrapp-link">
+            <h3 className="card_wrapp-link-title">{title}</h3>
+            <img
+              src={thumbnail}
+              alt={title}
+              className="card_wrapp-link-thumbnail"
+            />
+            <div className="card_wrapp-link-bottom">
+              <h4 className="card_wrapp-link-bottom-subtitle">
+                {subtitle ? subtitle : "No subtitle"}
+              </h4>
+              <p className="card_wrapp-link-bottom-searchInfo">
+                {parse(searchInfo)}
+              </p>
+            </div>
+          </Link>
+        </div>
+      )}
+    </>
   );
 };
 

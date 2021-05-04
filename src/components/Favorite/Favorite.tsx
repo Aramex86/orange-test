@@ -16,7 +16,7 @@ const Favorite = () => {
         ({id, volumeInfo: {title, imageLinks, subtitle}, searchInfo}) => (
           <BookCard
             key={id}
-            id={id}
+            id={'non'}
             title={title}
             thumbnail={
               imageLinks.smallThumbnail === undefined
