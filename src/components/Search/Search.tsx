@@ -1,14 +1,13 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {getSearchVal, requestBooks} from '../../store/reducers/booksReducer';
-import {valueSelector} from '../../store/selectors/booksSelector';
-import {AppStateType} from '../../store/store';
-import {IoIosClose} from 'react-icons/io';
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchVal, requestBooks } from "../../store/reducers/booksReducer";
+import { valueSelector } from "../../store/selectors/booksSelector";
+import { AppStateType } from "../../store/store";
+import { IoIosClose } from "react-icons/io";
 
 const Search = () => {
   const storeVal = useSelector((state: AppStateType) => valueSelector(state));
   const [val, setVal] = useState(storeVal);
-  const [empty, setEmpty] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,20 +23,15 @@ const Search = () => {
     return () => clearTimeout(stopTyping);
   }, [val]);
 
-
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setVal(value);
     dispatch(getSearchVal(value));
-    if (val.length >= 3) return setEmpty(true);
-    if (val.length === 0) return setEmpty(false);
   };
 
   const handleEmpty = () => {
-    dispatch(getSearchVal(''));
-    setVal('');
-    setEmpty(false);
+    dispatch(getSearchVal(""));
+    setVal("");
   };
 
   return (
@@ -50,11 +44,11 @@ const Search = () => {
           onChange={handleChange}
           value={val}
         />
-        {empty && (
+        {val ? (
           <button className="btn-empty" onClick={handleEmpty}>
             <IoIosClose size="24" color="#a7a7a7" />
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );
