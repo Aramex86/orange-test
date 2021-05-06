@@ -13,9 +13,10 @@ const Favorite = () => {
   return (
     <section className="fav_wrapp">
       {favorite.map(
-        ({id, volumeInfo: {title, imageLinks, subtitle}, searchInfo}) => (
+        ({id,etag, volumeInfo: {title, imageLinks, subtitle}, searchInfo}) => (
           <BookCard
             key={id}
+            etag={etag}
             id={'non'}
             title={title}
             thumbnail={

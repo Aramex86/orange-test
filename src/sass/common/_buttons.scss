@@ -1,4 +1,4 @@
-.btn_wrapp{
+.btn_wrapp {
   display: flex;
 
   &-btn-link {
@@ -26,4 +26,19 @@
   outline: transparent;
   left: calc(100% - 10%);
   top: 16%;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 7px;
+  top: 9px;
+  background: transparent;
+  border: transparent;
+  outline: transparent;
+  cursor: pointer;
+  & svg {
+    color: #f825259c;
+  }
 }

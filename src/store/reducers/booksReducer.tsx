@@ -7,6 +7,7 @@ import {AppStateType} from '../store';
 const SEARCH_VALUE = 'SEARCH_VALUE';
 const GET_BOOKS = 'GET_BOOKS';
 const ADD_FAVORITE = 'ADD_FAVORITE';
+const DELETE_FAVORITE = 'DELETE_FAVORITE'
 
 const initialState = {
   searchValue: '',
@@ -16,7 +17,7 @@ const initialState = {
 
 type InitialStateType = typeof initialState;
 
-type ActionsTypes = GetItemsType | SearchValueType | AddToFavoriteType;
+type ActionsTypes = GetItemsType | SearchValueType | AddToFavoriteType |DeleteFavoriteType;
 
 type DispatchType = Dispatch<ActionsTypes>;
 
@@ -42,6 +43,15 @@ const booksReducer = (
       return {
         ...state,
         books: action.books,
+      };
+    }
+    case DELETE_FAVORITE: {
+
+
+      console.log(state.addToFavorite.filter(i=> i.id))
+      return {
+        ...state,
+        addToFavorite: [...state.addToFavorite.filter(item=> item.etag !== action.etag)],
       };
     }
     case ADD_FAVORITE: {
@@ -77,6 +87,11 @@ type AddToFavoriteType = {
   addToFavorite: BooksType;
 };
 
+type DeleteFavoriteType={
+  type: typeof DELETE_FAVORITE,
+  etag: string
+}
+
 //Action Creators
 
 export const getItems = (books: Array<BooksType>): GetItemsType => {
@@ -90,6 +105,10 @@ export const addToFavorite = (addToFavorite: BooksType): AddToFavoriteType => {
 export const getSearchVal = (searchValue: string): SearchValueType => {
   return {type: SEARCH_VALUE, searchValue};
 };
+
+export const deleteFav=(etag:string):DeleteFavoriteType=>{
+  return{type:DELETE_FAVORITE, etag}
+}
 
 //Thunk Creator
 export const requestBooks = (searchValue: string): ThunkType => async (

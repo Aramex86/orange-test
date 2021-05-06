@@ -18,9 +18,10 @@ const MainScreen = () => {
         {!books?<div className='no_booksError'>No such books! Try another title</div>:<> {books.length === 0 ? (
           <div className="bookCard_wrapp-nobooks">No Books Yet</div>
         ) : (
-          books.map(({id, volumeInfo, searchInfo}) => (
+          books.map(({id,etag, volumeInfo, searchInfo}) => (
             <BookCard
               key={id}
+              etag={etag}
               id={id}
               title={volumeInfo.title}
               thumbnail={

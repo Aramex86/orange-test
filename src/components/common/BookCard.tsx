@@ -1,9 +1,13 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { deleteFav } from "../../store/reducers/booksReducer";
 
 type PropsType = {
   id: string;
+  etag:string;
   title: string;
   thumbnail?: string;
   subtitle?: string;
@@ -13,14 +17,21 @@ type PropsType = {
 const BookCard: FC<PropsType> = ({
   id,
   title,
+  etag,
   thumbnail,
   subtitle,
   searchInfo,
 }) => {
+
+  const dispatch=useDispatch()
+
   return (
     <>
       {id === "non" ? (
         <div className="card_wrapp">
+          <button className="btn-delete" onClick={()=>dispatch(deleteFav(etag))}>
+            <MdDelete size="24" />
+          </button>
           <h3 className="card_wrapp-link-title">{title}</h3>
           <img
             src={thumbnail}
